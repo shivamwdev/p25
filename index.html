@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+  <title>Music Player</title>
+</head>
+
+<!-- body starts here  -->
+
+<body>
+  <!-- header(loading container) starts here  -->
+  <header id="header">
+
+    <!-- main container for app logo container  -->
+    <div id="outer-circle-container">
+
+      <!-- for gradient finish  -->
+      <div id="outer-circle" class="outer-circle"></div>
+
+      <!-- main app logo container  -->
+      <div id="app-logo-container">
+
+        <!-- app logo  -->
+        <img src="favicon.png" alt="logo">
+      </div>
+
+    </div>
+
+    <!-- display progress loading container  -->
+    <div id="loading-container">
+      <div id="loading-background"></div>
+      <div id="loading">Loading...</div>
+    </div>
+
+  </header>
+
+  <!-- information gathering section  -->
+  <div id="info-container">
+
+    <!-- user information container  -->
+    <div id="u-container">
+
+      <!-- logo main header goes here  -->
+      <div class="form-logo">
+        <img src="favicon.png" alt="logo"><strong>Music</strong>
+      </div>
+
+      <!-- naming form container  -->
+      <div id="form-container">
+
+        <!-- main heading -->
+        <div id="u-heading">Let's Get Started</div>
+
+        <!-- main title  -->
+        <div id="u-title">Your one stop music platform.</div>
+
+        <!-- user name entry -->
+        <label id="u-label" for="username">Enter Username : </label>
+        <input type="text" name="username" id="username" placeholder="Your Name..." max="10"
+          title="Please enter your name" />
+        <div id="next-button" class="disabled-link">
+          Next <i class="fad fa-chevron-double-right"></i>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- music selection container  -->
+    <div id="m-container">
+      <!-- logo goes here  -->
+      <div class="form-logo">
+        <img src="favicon.png" alt="logo"><strong>Music</strong>
+      </div>
+
+      <div id="m-sub-container">
+        <!-- greeting user  -->
+        <div id="greeting-section">Hello <span>user</span></div>
+
+        <!-- heading for selection  -->
+        <div id="sel-heading">Explore By Category </div>
+
+        <!-- language category section -->
+        <div id="category-section">
+
+          <!-- this is first input  -->
+          <input class="sel-song" type="checkbox" name="english" id="english" />
+          <label class="sel-label" for="english">
+            <div>
+              <img src="images/artist/english/justin.webp" alt="English" />
+            </div>
+            <div class="sel-label-name">English</div>
+          </label>
+          
+          <!-- this is second input  -->
+          <input class="sel-song" type="checkbox" name="hindi" id="hindi" />
+          <label class="sel-label" for="hindi">
+            <div>
+              <img src="images/artist/hindi/arijit singh.webp" alt="Hindi" />
+            </div>
+            <div class="sel-label-name">Hindi</div>
+          </label>
+
+          <!-- this is third input  -->
+          <input class="sel-song" type="checkbox" name="punjabi" id="punjabi" />
+          <label class="sel-label" for="punjabi">
+            <div>
+              <img src="images/artist/punjabi/diljit dosanjh.webp" alt="Punjabi" />
+            </div>
+            <div class="sel-label-name">Punjabi</div>
+          </label>
+
+          <!-- this is fourth input  -->
+          <input class="sel-song" type="checkbox" name="hariyanvi" id="hariyanvi" />
+          <label class="sel-label" for="hariyanvi">
+            <div>
+              <img src="images/artist/haryanvi/fazilpuria.webp" alt="Hariyanvi" />
+            </div>
+            <div class="sel-label-name">Hariyanvi</div>
+          </label>
+        </div>
+
+        <div id="m-warning">In order to proceed you must select atleast one category.</div>
+
+        <div class="scale" id="save-button">Save <i class="fas fa-badge-check"></i></div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!--navigation bar header goes here  -->
+  <nav id="navbar">
+
+    <!-- navbar left section  -->
+    <div id="n-left">
+      <img src="favicon.png" alt="logo">
+      <div>Musify</div>
+    </div>
+
+    <!-- navbar center section  -->
+    <div id="n-center">
+
+      <div class="navbar-links navlink-active">
+        <div>
+          <i class="fad fa-home-lg-alt n-icon"></i>
+        </div>
+        <div class="n-text">Home</div>
+      </div>
+
+      <div class="navbar-links">
+        <div>
+          <i class="fa-solid fa-compact-disc n-icon"></i>
+        </div>
+        <div class="n-text">player</div>
+      </div>
+
+      <div class="navbar-links">
+        <div>
+          <i class="far fa-search n-icon"></i>
+        </div>
+        <div class="n-text">Search</div>
+      </div>
+
+      <div class="navbar-links">
+        <div>
+          <i class="fad fa-user n-icon"></i>
+        </div>
+        <div class="n-text">Me</div>
+      </div>
+
+    </div>
+
+    <!-- navbar right section  -->
+    <div id="n-right">
+      <i class="fas fa-ellipsis-v"></i>
+      <div id="nav-dropdown">
+        <div class="drop-item">full screen mode</div>
+        <div class="drop-item">gym mode</div>
+        <div class="drop-item">coding mode</div>
+        <div class="drop-item"><i class="fa-solid fa-circle-info"></i> v22</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- main section  -->
+  <main>
+
+    <!-- ======================== home section ================================== -->
+    <div id="home">
+      
+      <!-- ======================== recent songs ============================== -->
+      <div id="recent-container">
+        <!-- sub heading  -->
+        <div class="home-heading">recent songs</div>
+        <!-- sub container  -->
+        <div class="sub-container"></div>
+      </div>
+      
+      <!-- popular artist main container  -->
+      <!-- <div class="artist-list-container"></div> -->
+
+      <!-- english songs  -->
+      <div class="song-container">
+        <!-- sub heading  -->
+        <div class="home-heading">english songs</div>
+        <!-- sub container  -->
+        <div class="sub-container"></div>
+      </div>
+
+      <!-- hindi songs  -->
+      <div class="song-container">
+        <!-- sub heading  -->
+        <div class="home-heading">hindi songs</div>
+        <!-- sub container  -->
+        <div class="sub-container"></div>
+      </div>
+
+      <!-- punjabi songs  -->
+      <div class="song-container">
+        <!-- sub heading  -->
+        <div class="home-heading">punjabi songs</div>
+        <!-- sub container  -->
+        <div class="sub-container"></div>
+      </div>
+
+      <!-- haryanvi songs  -->
+      <div class="song-container">
+        <!-- sub heading  -->
+        <div class="home-heading">haryanvi songs</div>
+        <!-- sub container  -->
+        <div class="sub-container"></div>
+      </div>
+
+    </div>
+
+    <!-- search container  -->
+    <div id="search-container">
+
+      <!-- search header  -->
+      <div id="search-header">
+
+        <div id="close-search">
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+
+        <div id="search-box">
+          <input type="text" placeholder="Search here..." name="search-song" id="search-song">
+          <div id="clear-text" >
+            <label for="search-song">
+              <i class="fa-solid fa-xmark"></i>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="show-result">
+
+        <!-- single item -->
+        <!-- <div class="match-item">
+          <div>
+            <img class="match-img" src="images/artist/english/alan walker.webp" alt="alan walker">
+          </div>
+          <div>
+            <div class="match-song">on my way</div>
+            <div class="match-artist">alan walker</div>
+          </div>
+        </div> -->
+
+      </div>
+
+      <div id="close-searh-container"></div>
+
+    </div>
+
+    <!-- about me container  -->
+    <div id="me-container">
+
+      <!-- header  -->
+      <div id="me-top">
+
+        <div>
+          <div id="me-img">
+            <img src="user.svg" alt="my image">
+          </div>
+  
+          <div id="me-name">null</div>
+        </div>
+
+      </div>
+
+      <!-- body  -->
+      <div id="me-body">
+
+        <!-- favourite songs  -->
+        <div id="me-fav-container">
+          <div class="me-title">favourite songs</div>
+          <div id="fav-list"></div>
+        </div>
+
+        <!-- mood mix list container  -->
+        <div id="mood-mix">
+
+          <div class="me-title">mood mix songs</div>
+
+          <div id="mood-mix-container">
+
+            <!-- this is gym songs item  -->
+            <div class="mood-mix-item">
+              <div>
+                <img src="images/gym.jpg" alt="gym songs" class="mood-img">
+              </div>
+              <div class="mood-title">gym songs</div>
+            </div>
+
+            <!-- this is coding songs item  -->
+            <div class="mood-mix-item">
+              <div>
+                <img src="images/coding.png" alt="coding songs" class="mood-img">
+              </div>
+              <div class="mood-title">coding songs</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- change song categories  -->
+        <div id="categories-container">
+
+          <div class="me-title">change song categories</div>
+
+          <div id="categories">
+
+            <!-- this is first item  -->
+            <input type="checkbox" name="English" id="English" class="updt-categories">
+            <label for="English" class="categories">
+              <div>
+                <img class="categories-image" src="images/artist/english/alan walker.webp" alt="categories">
+              </div>
+              <div>english</div>
+            </label>
+
+            <!-- this is second item  -->
+            <input type="checkbox" name="Hindi" id="Hindi" class="updt-categories">
+            <label for="Hindi" class="categories">
+              <div>
+                <img class="categories-image" src="images/artist/hindi/arijit singh.webp" alt="hindi">
+              </div>
+              <div>hindi</div>
+            </label>
+
+            <!-- this is third item  -->
+            <input type="checkbox" name="Punjabi" id="Punjabi" class="updt-categories">
+            <label for="Punjabi" class="categories">
+              <div>
+                <img class="categories-image" src="images/artist/punjabi/diljit dosanjh.webp" alt="punjabi">
+              </div>
+              <div>punjabi</div>
+            </label>
+
+            <!-- this is fourth item  -->
+            <input type="checkbox" name="Hariyanvi" id="Hariyanvi" class="updt-categories">
+            <label for="Hariyanvi" class="categories">
+              <div>
+                <img class="categories-image" src="images/artist/haryanvi/fazilpuria.webp" alt="haryanvi">
+              </div>
+              <div>haryanvi</div>
+            </label>
+
+          </div>
+
+          <div id="save-changes" class="disabled-link">save changes</div>
+        </div>
+
+        <hr id="me-hr">
+
+        <!-- primary delete button  -->
+        <div id="delete-account">delete account</div>
+
+        <!-- pop-up delete button container  -->
+        <div id="delete-account-container">
+          <div id="delete-account-pop-up">
+            <div id="delete-warning">sure you want to delete your account permanently?</div>
+            <div>
+              <div class="delete-btn" id="btn-cancel">cancel</div>
+              <div class="delete-btn" id="btn-delete">delete</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- artist songs list container  -->
+  
+  <div id="artist-song-container" class="hide-player-container">
+
+    <!-- navbar section  -->
+    <div id="artist-navbar">
+
+      <div id="close-artist">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+
+      <div id="artist-logo">
+        <img src="favicon.png" alt="favicon">
+        <div>musify</div>
+      </div>
+
+    </div>
+
+    <!-- body container  -->
+    <div id="artist-body">
+
+      <!-- header image section  -->
+      <div id="artist-header">
+        <div id="artist-name">arijit singh</div>
+        <img id="artist-image" src="images/coding.png" alt="artist image">
+      </div>
+
+      <!-- sub heading -->
+      <div id="artist-sub-heading">musics</div>
+
+      <!-- artist songs list container  -->
+      <div id="artist-songs-list-container">
+
+        <!-- mood song item  -->
+        <!-- <div class="mix-item">
+          <div class="play-item">
+            <div>
+              <img src="images/artist/english/alan walker.webp" alt="mood song item" class="mix-img">
+            </div>
+            <div class="mix-song-detail">
+              <div class="mix-song-name">song name </div>
+              <div class="mix-artist-name">artist Name</div>
+            </div>
+          </div>
+          <div class="mix-download">
+            <a href="" download="" class="fas fa-download"></a>
+          </div>
+        </div> -->
+        
+      </div>
+    </div>
+
+  </div>
+
+  <!-- audio player container  -->
+  <div id="player-container" class="hide-player-container">
+
+    <!-- down arrow  -->
+    <i id="close-player-container" class="fas fa-chevron-down"></i>
+
+    <!-- artist name  -->
+    <div id="player-artist-name">Artist Name </div>
+
+    <!-- artist image  -->
+    <div>
+      <img id="player-image" src="images/artist/english/sunflower.webp" alt="song image">
+    </div>
+
+    <!-- current playing sub-heading  -->
+    <div id="current-playing">Currently Playing</div>
+
+    <!-- song name  -->
+    <div id="player-song-name">Song Name</div>
+
+    <!-- player icon container  -->
+    <div id="player-icon-container">
+      <i id="toggle-fav-song" class="far fa-heart"></i>
+      <a class="fas fa-download" href="" id="download-song" download></a>
+      <i id="play-mode" class="fa-solid fa-arrows-repeat"></i>
+    </div>
+  
+    <!-- progress bar of player's section  -->
+    <div id="progress-container">
+      <!-- left timer  -->
+      <div id="left-timer">00:00</div>
+
+      <!-- center progess bar  -->
+      <div>
+        <input type="range" name="progress" id="progress" value="0">
+      </div>
+
+      <!-- right timer  -->
+      <div id="right-timer">00:00</div>
+
+    </div>
+
+    <!-- main controls section  -->
+    <div id="main-controls">
+
+      <i id="backward-button" class="fas fa-step-backward"></i>
+      <i id="playPauseButton" class="fas fa-play-circle"></i>
+      <i id="forward-button" class="fas fa-step-forward"></i>
+
+    </div>
+
+    <div id="next-song-indication">Upcoming Song : <span>undefined</span></div>
+
+  </div>
+
+  <!-- audio tag -->
+  <audio src="" id="myAudio"></audio>
+
+</body>
+<script src="main.js"></script>
+
+</html>

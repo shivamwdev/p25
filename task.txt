@@ -1,0 +1,443 @@
+favourite songs should add in recent played songs 
+it's happening but not working well 
+
+
+
+<i class="fa-solid fa-arrows-repeat-1"></i>
+<i class="fa-solid fa-arrows-repeat"></i>
+<i class="fa-solid fa-shuffle"></i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. create & arrange all the songs and details
+2. convert into json
+3. upload to github
+4. create functions for fetching those files 
+5. prepare the home section
+6. create shuffle function
+
+===============================================================
+
+7. recent songs create
+
+
+
+********************************************************************
+
+// function create artist in popular section 
+function createArtist(index) {
+    let div = document.createElement('div');
+    div.classList.add('artist');
+    div.innerHTML = `
+    <div class="artist-thumbnail">
+    <img src="${english[index].image}" alt="${english[index].artistName}">
+    </div>
+    
+    <div class="artist-name">${english[index].artistName}</div>`;
+    
+    document.getElementById('popular-artist-items-container').appendChild(div);
+}
+
+// function create songs in recent played section 
+let recentCounter = 0;
+function createSongs(index, songNumber){
+    let div = document.createElement('div');
+    div.classList.add('recent-songs-item');
+    div.innerHTML = `
+            <div class="recent-song-img">
+                <img src="${english[index].image}" alt="${english[index].artistName}">
+            </div>
+
+            <div class="recent-song-name">${english[index].items[songNumber].songName}</div>
+            <div class="recent-artist-name">${english[index].artistName}</div>`;
+    
+    document.getElementById('recent-songs-container').appendChild(div);
+    document.getElementsByClassName('recent-songs-item')[recentCounter].addEventListener('click',()=>{
+        playerContainer.classList.toggle('hide-player-container');
+        myAudio.src = english[index].items[songNumber].song;
+        play();
+        document.getElementById('download-song').href = english[index].items[songNumber].song;
+        document.getElementById('player-artist-name').innerHTML = english[index].artistName;
+        document.getElementById('player-image').src = english[index].image;
+        document.getElementById('player-song-name').innerHTML = english[index].items[songNumber].songName;
+        if ((songNumber + 1) == english[index].items.length) {
+            if ((index + 1) == english.length) {
+                nextSongIndication.innerHTML = english[0].items[0].songName;
+            }
+            nextSongIndication.innerHTML = english[index + 1].items[0].songName;
+        } else {
+            nextSongIndication.innerHTML = english[index].items[songNumber + 1].songName;
+        }
+        
+    })
+    recentCounter++;
+}
+====================================================================
+
+// english json 
+const english = [
+
+    // alan walker 
+    {
+        image: "images/artist/english/alan walker.webp",
+        artistName : "alan walker",
+        songName : "alone 2",
+        song : "https://shivamwdev.github.io/english/Alan walker/alone 2.mp3"
+    },
+    {
+        image: "images/artist/english/alan walker.webp",
+        artistName : "alan walker",
+        songName : "alone",
+        song : "https://shivamwdev.github.io/english/Alan walker/alone.mp3"
+    },
+    {
+        image: "images/artist/english/alan walker.webp",
+        artistName : "alan walker",
+        songName : "darkside",
+        song : "https://shivamwdev.github.io/english/Alan walker/darkside.mp3"
+    },
+    {
+        image: "images/artist/english/alan walker.webp",
+        artistName : "alan walker",
+        songName : "faded",
+        song : "https://shivamwdev.github.io/english/Alan walker/faded.mp3"
+    },
+
+    // ariana grande 
+    {
+        image: "images/artist/english/ariana grande.webp",
+        artistName : "ariana grande",
+        songName : "34 + 35",
+        song : "https://shivamwdev.github.io/english/Ariana Grande/34 + 35.mp3"
+    },
+    {
+        image: "images/artist/english/ariana grande.webp",
+        artistName : "ariana grande",
+        songName : "7 rings",
+        song : "https://shivamwdev.github.io/english/Ariana Grande/7 rings.mp3"
+    },
+    {
+        image: "images/artist/english/ariana grande.webp",
+        artistName : "ariana grande",
+        songName : "into you",
+        song : "https://shivamwdev.github.io/english/Ariana Grande/into you.mp3"
+    },
+    {
+        image: "images/artist/english/ariana grande.webp",
+        artistName : "ariana grande",
+        songName : "love me harder",
+        song : "https://shivamwdev.github.io/english/Ariana Grande/love me harder.mp3"
+    },
+
+    // chain smokers
+    {
+        image: "images/artist/english/chainsmoker.webp",
+        artistName : "chainsmokers",
+        songName : "all we know",
+        song : "https://shivamwdev.github.io/english/chainsmoker/all we know.mp3"
+    },
+    {
+        image: "images/artist/english/chainsmoker.webp",
+        artistName : "chainsmokers",
+        songName : "call you mine",
+        song : "https://shivamwdev.github.io/english/chainsmoker/call you mine.mp3"
+    },
+    {
+        image: "images/artist/english/chainsmoker.webp",
+        artistName : "chainsmokers",
+        songName : "closer",
+        song : "https://shivamwdev.github.io/english/chainsmoker/closer.mp3"
+    },
+    {
+        image: "images/artist/english/dua lipa.webp",
+        artistName : "dua lipa",
+        songName : "don't let me down",
+        song : "https://shivamwdev.github.io/english/dua lipa/don't let me down.mp3"
+    },
+
+    // dua lipa 
+    {
+        image: "images/artist/english/dua lipa.webp",
+        artistName : "dua lipa",
+        songName : "be the one",
+        song : "https://shivamwdev.github.io/english/dua lipa/be the one.mp3"
+    },
+    {
+        image: "images/artist/english/dua lipa.webp",
+        artistName : "dua lipa",
+        songName : "blow your mind",
+        song : "https://shivamwdev.github.io/english/dua lipa/blow your mind.mp3"
+    },
+    {
+        image: "images/artist/english/dua lipa.webp",
+        artistName : "dua lipa",
+        songName : "break my heart",
+        song : "https://shivamwdev.github.io/english/dua lipa/break my heart.mp3"
+    },
+    {
+        image: "images/artist/english/dua lipa.webp",
+        artistName : "dua lipa",
+        songName : "cold heart",
+        song : "https://shivamwdev.github.io/english/dua lipa/cold heart.mp3"
+    }
+
+];
+
+// hindi json 
+let hindi = [
+
+    // arijit songs 
+    {
+        image: "images/artist/hindi/arijit singh.webp",
+        artistName: "arijit singh",
+        songName: "channa mereya",
+        song: "https://shivamwdev.github.io/hindi/Arijit Singh/channa mereya.mp3"
+    },
+    {
+        image: "images/artist/hindi/arijit singh.webp",
+        artistName: "arijit singh",
+        songName: "dil hi toh hai",
+        song: "https://shivamwdev.github.io/hindi/Arijit Singh/dil hi toh hai.mp3"
+    },
+    {
+        image: "images/artist/hindi/arijit singh.webp",
+        artistName: "arijit singh",
+        songName: "enna sona",
+        song: "https://shivamwdev.github.io/hindi/Arijit Singh/enna sona.mp3"
+    },
+    {
+        image: "images/artist/hindi/arijit singh.webp",
+        artistName: "arijit singh",
+        songName: "hamdard",
+        song: "https://shivamwdev.github.io/hindi/Arijit Singh/hamdard.mp3"
+    },
+
+    // arjun kanungo 
+    {
+        image: "images/artist/hindi/Arjun kanungo.webp",
+        artistName: "Arjun kanungo",
+        songName: "aaya na tu",
+        song: "https://shivamwdev.github.io/hindi/Arjun kanungo/aaya na tu.mp3"
+    },
+    {
+        image: "images/artist/hindi/Arjun kanungo.webp",
+        artistName: "Arjun kanungo",
+        songName: "baaki baatein peene baad",
+        song: "https://shivamwdev.github.io/hindi/Arjun kanungo/baaki baatein peene baad.mp3"
+    },
+    {
+        image: "images/artist/hindi/Arjun kanungo.webp",
+        artistName: "Arjun kanungo",
+        songName: "fursat jo mile",
+        song: "https://shivamwdev.github.io/hindi/Arjun kanungo/fursat jo mile.mp3"
+    },
+    {
+        image: "images/artist/hindi/Arjun kanungo.webp",
+        artistName: "Arjun kanungo",
+        songName: "gallan tipsiyaan",
+        song: "https://shivamwdev.github.io/hindi/Arjun kanungo/gallan tipsiyaan.mp3"
+    },
+
+    // dhvani Bhanushali
+    {
+        image: "images/artist/hindi/dhvani bhanushali.webp",
+        artistName: "dhvani bhanushali",
+        songName: "leja re",
+        song: "https://shivamwdev.github.io/hindi/dhvani bhanushali/leja re.mp3"
+    },
+    {
+        image: "images/artist/hindi/dhvani bhanushali.webp",
+        artistName: "dhvani bhanushali",
+        songName: "radha",
+        song: "https://shivamwdev.github.io/hindi/dhvani bhanushali/radha.mp3"
+    },
+    {
+        image: "images/artist/hindi/dhvani bhanushali.webp",
+        artistName: "dhvani bhanushali",
+        songName: "vaaste",
+        song: "https://shivamwdev.github.io/hindi/dhvani bhanushali/vaaste.mp3"
+    },
+    {
+        image: "images/artist/hindi/dhvani bhanushali.webp",
+        artistName: "dhvani bhanushali",
+        songName: "mera yaar",
+        song: "https://shivamwdev.github.io/hindi/dhvani bhanushali/mera yaar.mp3"
+    },
+
+    // jubin nautiyal
+    {
+        image: "images/artist/hindi/jubin nautiyal.webp",
+        artistName: "jubin nautiyal",
+        songName: "lut gaye",
+        song: "https://shivamwdev.github.io/hindi/jubin nautiyal/lut gaye.mp3"
+    },
+    {
+        image: "images/artist/hindi/jubin nautiyal.webp",
+        artistName: "jubin nautiyal",
+        songName: "bewafa tera masoom chehra",
+        song: "https://shivamwdev.github.io/hindi/jubin nautiyal/bewafa tera masoom chehra.mp3"
+    },
+    {
+        image: "images/artist/hindi/jubin nautiyal.webp",
+        artistName: "jubin nautiyal",
+        songName: "barsaat ki dhun",
+        song: "https://shivamwdev.github.io/hindi/jubin nautiyal/barsaat ki dhun.mp3"
+    },
+    {
+        image: "images/artist/hindi/jubin nautiyal.webp",
+        artistName: "jubin nautiyal",
+        songName: "taaron ke shehar",
+        song: "https://shivamwdev.github.io/hindi/jubin nautiyal/taaron ke shehar.mp3"
+    },
+
+]
+
+// punjabi json 
+let punjabi = [
+
+    // diljit dosanjh
+    {
+        image: "images/artist/punjabi/diljit dosanjh.webp",
+        artistName: "diljit dosanjh",
+        songName: "G.O.A.T.",
+        song: "https://shivamwdev.github.io/punjabi/Diljit dosanjh/G.O.A.T..mp3"
+    },
+    {
+        image: "images/artist/punjabi/diljit dosanjh.webp",
+        artistName: "diljit dosanjh",
+        songName: "born to shine",
+        song: "https://shivamwdev.github.io/punjabi/Diljit dosanjh/born to shine.mp3"
+    },
+    {
+        image: "images/artist/punjabi/diljit dosanjh.webp",
+        artistName: "diljit dosanjh",
+        songName: "lover",
+        song: "https://shivamwdev.github.io/punjabi/Diljit dosanjh/lover.mp3"
+    },
+    {
+        image: "images/artist/punjabi/diljit dosanjh.webp",
+        artistName: "diljit dosanjh",
+        songName: "vibe",
+        song: "https://shivamwdev.github.io/punjabi/Diljit dosanjh/vibe.mp3"
+    },
+
+    // maninder buttar
+    {
+        image: "images/artist/punjabi/maninder buttar.webp",
+        artistName: "maninder buttar",
+        songName: "gall goriye",
+        song: "https://shivamwdev.github.io/punjabi/maninder buttar/gall goriye.mp3"
+    },
+    {
+        image: "images/artist/punjabi/maninder buttar.webp",
+        artistName: "maninder buttar",
+        songName: "jamila",
+        song: "https://shivamwdev.github.io/punjabi/maninder buttar/jamila.mp3"
+    },
+    {
+        image: "images/artist/punjabi/maninder buttar.webp",
+        artistName: "maninder buttar",
+        songName: "kaali kaali kurti",
+        song: "https://shivamwdev.github.io/punjabi/maninder buttar/kaali kaali kurti.mp3"
+    },
+    {
+        image: "images/artist/punjabi/maninder buttar.webp",
+        artistName: "maninder buttar",
+        songName: "mombatiyaan",
+        song: "https://shivamwdev.github.io/punjabi/maninder buttar/mombatiyaan.mp3"
+    }
+]
+
+// haryanvi json
+let haryanvi = [
+
+    // ajay hooda  
+    {
+        image: "images/artist/haryanvi/ajay hooda.webp",
+        artistName: "ajay hooda",
+        songName: "bahu kale ki",
+        song: "https://shivamwdev.github.io/haryanvi/ajay hooda/bahu kale ki.mp3"
+    },
+    {
+        image: "images/artist/haryanvi/ajay hooda.webp",
+        artistName: "ajay hooda",
+        songName: "left right",
+        song: "https://shivamwdev.github.io/haryanvi/ajay hooda/left right.mp3"
+    },
+    {
+        image: "images/artist/haryanvi/ajay hooda.webp",
+        artistName: "ajay hooda",
+        songName: "moto",
+        song: "https://shivamwdev.github.io/haryanvi/ajay hooda/moto.mp3"
+    },
+    {
+        image: "images/artist/haryanvi/ajay hooda.webp",
+        artistName: "ajay hooda",
+        songName: "solid body",
+        song: "https://shivamwdev.github.io/haryanvi/ajay hooda/solid body.mp3"
+    },
+
+    // fazilpuria
+    {
+        image: "images/artist/haryanvi/fazilpuria.webp",
+        artistName: "fazilpuria",
+        songName: "lala lala lori",
+        song: "https://shivamwdev.github.io/haryanvi/fazil puria/lala lala lori.mp3"
+    },
+    {
+        image: "images/artist/haryanvi/fazilpuria.webp",
+        artistName: "fazilpuria",
+        songName: "2 many girls",
+        song: "https://shivamwdev.github.io/haryanvi/fazil puria/2 many girls.mp3"
+    },
+    {
+        image: "images/artist/haryanvi/fazilpuria.webp",
+        artistName: "fazilpuria",
+        songName: "chull",
+        song: "https://shivamwdev.github.io/haryanvi/fazil puria/chull.mp3"
+    },
+
+    // renuka panwar 
+    {
+        image: "images/artist/haryanvi/renuka panwar.webp",
+        artistName: "renuka panwar",
+        songName: "52 gaj ka daman",
+        song: "https://shivamwdev.github.io/haryanvi/renuka panwar/52 gaj ka daman.mp3"
+    },
+    {
+        image: "images/artist/haryanvi/renuka panwar.webp",
+        artistName: "renuka panwar",
+        songName: "chatak matak",
+        song: "https://shivamwdev.github.io/haryanvi/renuka panwar/chatak matak.mp3"
+    },
+    {
+        image: "images/artist/haryanvi/renuka panwar.webp",
+        artistName: "renuka panwar",
+        songName: "kabootar",
+        song: "https://shivamwdev.github.io/haryanvi/renuka panwar/kabootar.mp3"
+    },
+    {
+        image: "images/artist/haryanvi/renuka panwar.webp",
+        artistName: "renuka panwar",
+        songName: "kala daman",
+        song: "https://shivamwdev.github.io/haryanvi/renuka panwar/kala daman.mp3"
+    },
+
+
+]

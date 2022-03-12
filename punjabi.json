@@ -1,0 +1,50 @@
+[
+    {
+       "image":"images/artist/punjabi/diljit dosanjh.webp",
+       "artistName":"diljit dosanjh",
+       "songName":"G.O.A.T.",
+       "song":"https://shivamwdev.github.io/punjabi/Diljit dosanjh/G.O.A.T..mp3"
+    },
+    {
+       "image":"images/artist/punjabi/diljit dosanjh.webp",
+       "artistName":"diljit dosanjh",
+       "songName":"born to shine",
+       "song":"https://shivamwdev.github.io/punjabi/Diljit dosanjh/born to shine.mp3"
+    },
+    {
+       "image":"images/artist/punjabi/diljit dosanjh.webp",
+       "artistName":"diljit dosanjh",
+       "songName":"lover",
+       "song":"https://shivamwdev.github.io/punjabi/Diljit dosanjh/lover.mp3"
+    },
+    {
+       "image":"images/artist/punjabi/diljit dosanjh.webp",
+       "artistName":"diljit dosanjh",
+       "songName":"vibe",
+       "song":"https://shivamwdev.github.io/punjabi/Diljit dosanjh/vibe.mp3"
+    },
+    {
+       "image":"images/artist/punjabi/maninder buttar.webp",
+       "artistName":"maninder buttar",
+       "songName":"gall goriye",
+       "song":"https://shivamwdev.github.io/punjabi/maninder buttar/gall goriye.mp3"
+    },
+    {
+       "image":"images/artist/punjabi/maninder buttar.webp",
+       "artistName":"maninder buttar",
+       "songName":"jamila",
+       "song":"https://shivamwdev.github.io/punjabi/maninder buttar/jamila.mp3"
+    },
+    {
+       "image":"images/artist/punjabi/maninder buttar.webp",
+       "artistName":"maninder buttar",
+       "songName":"kaali kaali kurti",
+       "song":"https://shivamwdev.github.io/punjabi/maninder buttar/kaali kaali kurti.mp3"
+    },
+    {
+       "image":"images/artist/punjabi/maninder buttar.webp",
+       "artistName":"maninder buttar",
+       "songName":"mombatiyaan",
+       "song":"https://shivamwdev.github.io/punjabi/maninder buttar/mombatiyaan.mp3"
+    }
+ ]

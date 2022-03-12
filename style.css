@@ -1,0 +1,1625 @@
+/* importing poppins and sofia fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Sofia&display=swap');
+
+/* ====================== universal selector ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  user-select: none;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  -webkit-user-drag: none;
+  text-transform: capitalize;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+/* ==================== root variables here ============================= */
+
+:root {
+  --mpink: #d37fc5;
+  --bgcolor: #160a12;
+}
+
+/* make changes in selection of text color  */
+::selection {
+  color: white;
+  background-color: var(--mpink);
+}
+
+/* hiding scrollbars from page  */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* global styling for anchor tags  */
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+/* ============== disable links ===================== */
+.disabled-link {
+  pointer-events: none;
+  opacity: .5;
+}
+
+/* ============================ body ============================== */
+body {
+  background-color: var(--bgcolor);
+  color: var(--mpink);
+  overflow: hidden;
+}
+
+/* ======================--headers starts here--=========================  */
+header {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  z-index: 100000;
+  background-color: var(--bgcolor);
+  overflow: hidden;
+  transition: height .5s ease-in-out;
+}
+
+/* logo designing in header center */
+#outer-circle-container {
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px purple;
+  animation: APPLOGO 1s ease-in-out infinite alternate-reverse;
+}
+
+/* for making moving border for logo  */
+#outer-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(360deg, rgb(156, 1, 27), rgb(122, 14, 122));
+}
+
+/* outer circle class for moving border */
+.outer-circle {
+  top: 0;
+  right: 10%;
+  border-radius: 80%;
+  animation: outer-circle-animation 1.5s ease-in-out infinite;
+  transform-origin: center right;
+}
+
+#app-logo-container {
+  background-color: #0c070a;
+  width: 5.3rem;
+  height: 5.3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2em;
+}
+
+#app-logo {
+  font-size: 3rem;
+}
+
+@keyframes APPLOGO {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* loading container in header  */
+#loading-container {
+  margin: 3rem 0 0 0;
+  position: relative;
+  overflow: hidden;
+  transition: 1s ease-in-out;
+}
+
+/* moving background  */
+#loading-background {
+  position: absolute;
+  right: 10%;
+  z-index: -1;
+  transform-origin: center right;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(360deg, rgb(156, 1, 27), rgb(122, 14, 122));
+  animation: outer-circle-animation 1.5s ease-in-out infinite;
+}
+
+#loading {
+  background-color: #0c070a;
+  margin: 0.2rem;
+  padding: 0.5rem;
+}
+
+/* animation for loading logo & loading scale  */
+@keyframes outer-circle-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* here loading container over  */
+
+
+/* ================================ information section here =================================  */
+#info-container {
+  height: 100vh;
+  width: 100%;
+  background: url('images/background.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+/* for header of form section  */
+.form-logo {
+  font-size: 2rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  color: var(--mpink);
+}
+
+/* headers logo image  */
+.form-logo img {
+  width: 3rem;
+}
+
+/* headers icon title  */
+.form-logo strong {
+  font-family: sofia;
+  padding-left: 0.4rem;
+  margin-left: 0.4rem;
+}
+
+/* =============================== user name section =====================================  */
+/* username container  */
+#u-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* form container  */
+#form-container {
+  width: 30vw;
+  min-width: max-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem 2rem 1rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+}
+
+/* username section heading  */
+#u-heading {
+  font-size: 3.5rem;
+}
+
+/* username section title  */
+#u-title {
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 0 0 2rem;
+}
+
+/* username label  */
+#u-label {
+  cursor: pointer;
+  display: block;
+  padding: 1rem 0 .25rem;
+  font-size: 1.3rem;
+}
+
+/* username input  */
+#username {
+  width: 100%;
+  padding: 0.4rem 0.71rem 0;
+  font-size: 1.4rem;
+  border: none;
+  margin: 0 0 .3rem;
+  color: white;
+  background: rgba(255, 254, 254, 0);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+}
+
+#username::placeholder {
+  color: rgba(255, 255, 255, 0.719);
+}
+
+#username:focus {
+  box-shadow: 0px 0px 4px #ffffff;
+}
+
+/* to toggle next button  */
+#next-button {
+  border-radius: 5px;
+  width: max-content;
+  padding: 0.3rem 1.4rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin: 2.5rem 0;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  transform-origin: center bottom;
+  cursor: pointer;
+}
+
+#next-button:hover {
+  background-color: var(--mpink);
+  color: var(--bgcolor);
+}
+
+#next-button:active {
+  box-shadow: none;
+  transform: scale(.7);
+}
+
+/* =============================== categories selection ========================== */
+/* music selection container   */
+#m-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* m-sub-container section  */
+#m-sub-container {
+  padding: 0 2rem 5vh;
+  overflow-y: auto;
+}
+
+/* greeting user section  */
+#greeting-section {
+  font-size: 2.5rem;
+}
+
+/* heading for music selection */
+#sel-heading {
+  font-size: 1.35rem;
+  border-bottom: 4px solid #d37fc5ab;
+  margin: 0 0 1.2rem 0;
+}
+
+/* category section  */
+#category-section {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2vh 0;
+}
+
+/* images in label  */
+.sel-label {
+  display: block;
+  border-radius: 15px;
+  width: 30vh;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* images inside label  */
+.sel-label img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+/* label inner text  */
+.sel-label-name {
+  font-weight: 900;
+  font-size: 1.3rem;
+  padding: .5rem 0;
+  text-align: center;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+}
+
+/* these are inputs of music selection  */
+.sel-song {
+  display: none;
+}
+
+/* for checked input label's CSS */
+.sel-song:checked+.sel-label img {
+  box-shadow: 1px 1px 20px #730060, 0px 2px 20px #730060;
+  transform: scale(0.9);
+}
+
+/* warning section  */
+#m-warning {
+  border-left: 3px solid red;
+  padding: .4rem .4rem;
+  margin: 2vh 0;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* save button */
+#save-button {
+  padding: 0.4rem 2rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  cursor: pointer;
+  border: 5px solid;
+  border-color: #730060 rgb(94, 0, 16) rgb(94, 0, 16) #730060;
+  box-shadow: 0px 5px 10px rgb(107, 0, 128), 0px 4px 7px rgb(94, 0, 16);
+  transition: all 0.2s ease-in-out;
+  background-color: var(--bgcolor);
+  display: inline-block;
+  margin: 2vh 0 0;
+}
+
+#save-button:active {
+  transform: translateY(5px);
+  box-shadow: none;
+}
+
+/* scaling feature for save button  */
+.scale {
+  transform: translate(-50vw, 0);
+}
+
+/* ======================= navbar code goes here =================================  */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #000;
+  width: 100vw;
+  justify-content: space-between;
+  display: none;
+  animation: NAVBAR_POP_UP .5s ease-in-out;
+}
+
+/* navbar appearing animation  */
+@keyframes NAVBAR_POP_UP {
+  0% {
+    transform: translateY(-50vh);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* left section navbar */
+#n-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* left section image of navbar */
+#n-left img {
+  width: 2.42rem;
+  margin: 0 1rem;
+}
+
+#n-left>div {
+  font-weight: 900;
+  font-size: 1.5rem;
+  font-family: sofia;
+}
+
+/* center section navbar */
+#n-center {
+  display: flex;
+}
+
+/* navbar links of center div  */
+.navbar-links {
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.navbar-links:hover {
+  background-color: var(--mpink);
+  color: black;
+}
+
+/* navlink active  */
+.navlink-active {
+  background-color: var(--mpink);
+  color: var(--bgcolor);
+  transform: scale(.9);
+}
+
+/* hiding icons for computer  */
+.n-icon {
+  display: none;
+}
+
+/* right section navbar */
+#n-right {
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#n-right>i {
+  font-size: 1.5rem;
+}
+
+/* drop down list  */
+#nav-dropdown {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: black;
+  box-shadow: -1px 2px 10px var(--mpink);
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+  animation: DROPDOWNLIST .3s ease-in-out;
+  transform-origin: right top;
+  font-weight: 900;
+}
+
+@keyframes DROPDOWNLIST {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.drop-item {
+  padding: .5rem .7rem;
+  transition: all .4s ease;
+}
+
+.drop-item:hover {
+  color: #000;
+  background-color: var(--mpink);
+}
+
+/* too display the list  */
+#n-right:hover #nav-dropdown {
+  display: block;
+}
+
+/* ================================== main section ===============================  */
+main {
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 100vh !important;
+  overflow: hidden;
+}
+
+/* ============================= home section container ========================== */
+
+/* all songs container  */
+#home {
+  height: 100vh !important;
+  width: 100vw;
+  display: block;
+  overflow: hidden auto;
+  padding: 5rem .5rem;
+}
+
+.home-heading {
+  font-size: 1.5rem;
+  padding: .5rem 0.1rem 0;
+}
+
+/* ====================== recent songs container ======================== */
+#recent-container, .song-container {
+  /* border: 1px solid white; */
+  margin: 1rem 0;
+}
+
+.sub-container {
+  /* border: 1px solid greenyellow; */
+  padding: 1rem .5rem;
+  display: flex;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.recent-item, .song-item {
+  /* border: 1px solid yellowgreen; */
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.home-song-image {
+  width: 8rem;
+  height: 8rem;
+  display: block;
+  border-radius: 8px;
+}
+
+.home-song-name {
+  font-size: 1rem;
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 8rem;
+}
+
+.home-artist-name {
+  font-size: .8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 8rem;
+}
+
+/* ============================ artist section =========================  */
+
+/* artist container  */
+#artist-song-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bgcolor);
+  z-index: 100;
+  overflow-y: auto;
+  transition: transform .3s ease-in-out;
+}
+
+/* navbar section */
+#artist-navbar {
+  display: flex;
+  padding: .5rem 0;
+  width: 100%;
+  background-color: var(--bgcolor);
+}
+
+/* artist section close icon */
+#close-artist {
+  font-size: 1.7rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* navbar logo  */
+#artist-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* navbar logo img  */
+#artist-logo img {
+  width: 2.75rem;
+}
+
+/* navbar logo text  */
+#artist-logo>div {
+  font-size: 1.6rem;
+  font-family: sofia;
+  font-weight: 900;
+  padding: 0 .3rem;
+}
+
+/* body section  */
+
+#artist-body {
+  height: 90vh;
+  overflow-y: auto;
+  padding: 0 0 2rem;
+}
+
+/* artist header section  */
+#artist-header {
+  height: 12rem;
+  background: url('unwall.webp') no-repeat center center/cover;
+  border: 2px solid rgb(170, 109, 119);
+  box-shadow: 0px 3px 5px rgba(255, 55, 88, 0.349);
+  width: 97vw;
+  margin: .5rem auto;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* artist name section  */
+#artist-name {
+  color: white;
+  font-size: 2.2rem;
+  position: absolute;
+  bottom: 3%;
+  left: 1%;
+}
+
+/* artist image  */
+#artist-image {
+  position: absolute;
+  bottom: -22%;
+  right: 10%;
+  width: 8rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px whitesmoke;
+}
+
+/* artist sub heading  */
+#artist-sub-heading {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: underline;
+  padding: .4rem 3.2rem 1.4rem;
+}
+
+/* artist songs list section  */
+#artist-songs-list-container {
+  padding: 0 3.2rem;
+  /* height: 48vh; */
+  /* overflow-y: auto; */
+}
+
+/* mix container  */
+.mix-item {
+  display: flex;
+  max-width: 50rem;
+  cursor: pointer;
+  margin: 0 0 1rem;
+  height: 6.1rem;
+}
+
+.play-item {
+  display: flex;
+  width: 100%;
+}
+
+.mix-img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 10px;
+}
+
+.mix-song-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .4rem;
+  padding: 1rem;
+}
+
+.mix-song-name {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.mix-artist-name {
+  font-size: 1.05rem;
+}
+
+.mix-download{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+}
+
+.mix-download a {
+  font-size: 1.6rem;
+}
+
+/* ========================= search song container ========================  */
+#search-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 120%;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(67, 0, 37, 0.527);
+  transition: top .2s ease-in-out;
+}
+
+#search-header {
+  background-color: black;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+}
+
+#close-search {
+  cursor: pointer;
+  padding: .4rem .8rem;
+  font-size: 1.8rem;
+  margin-left: 1rem;
+}
+
+#search-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+#search-song {
+  background-color: transparent;
+  color: white;
+  border: none;
+  height: 90%;
+  width: 40%;
+  text-align: center;
+  font-size: 1.35rem;
+  text-transform: none;
+}
+
+#clear-text, #clear-text label {
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+#show-result {
+  margin: auto;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.match-item {
+  background-color: rgba(38, 0, 39, 0.363);
+  border: 1px solid rgba(255, 255, 255, 0.151);
+  display: flex;
+  align-items: center;
+  max-width: 37rem;
+  width: 95%;
+  margin: .25rem auto;
+  color: white;
+  padding: .5rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.match-item:hover {
+  background-color: rgba(255, 255, 255, 0.514);
+  border: 1px solid rgba(0, 0, 0, 0.39);
+  color: var(--bgcolor);
+  font-weight: 900;
+}
+
+.match-item>div:first-child {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.match-img {
+  width: 3rem;
+  border-radius: 5px;
+}
+
+.match-song {
+  font-size: 1.2rem;
+}
+
+.match-artist {
+  font-size: .87rem;
+}
+
+#close-searh-container {
+  height: 90%;
+}
+
+/* ================ about me section ====================  */
+#me-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden scroll;
+}
+
+#me-top {
+  width: 100%;
+  height: 13rem;
+  background: url('ah.jpg') no-repeat center center/cover;
+  position: relative;
+}
+
+#me-top>div {
+  position: absolute;
+  top: 8rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 17rem;
+}
+
+#me-img {
+  width: 8rem;
+  height: 8rem;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px #000;
+}
+
+#me-img img {
+  width: 100%;
+  height: 100%;
+}
+
+#me-name {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-shadow: 0px 0px 2px black,
+    0px 0px 2px black;
+  color: white;
+}
+
+/* me container body  */
+#me-body {
+  width: 90%;
+  margin: 5rem auto;
+}
+
+.me-title {
+  font-size: 1.3rem;
+  padding: .35rem 0 .5rem;
+  color: white;
+}
+
+#fav-list {
+  display: flex;
+  overflow-x: auto;
+}
+
+/* no fav songs found  */
+#no-fav-song {
+  width: 100%;
+  padding: 2rem 0;
+  text-align: center;
+  color: rgb(128, 128, 128);
+  border: 1px solid #730060;
+  border-radius: 10px;
+}
+
+.fav-song {
+  display: block !important;
+  text-align: center;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.fav-song-images {
+  width: 6rem;
+  border-radius: 10px;
+}
+
+.fav-song-name {
+  font-size: .9rem;
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 6rem;
+}
+
+.fav-artist-name {
+  font-size: .8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 6rem;
+}
+
+/* mood mix container  */
+#mood-mix {
+  margin-top: 1rem;
+}
+
+#mood-mix-container {
+  /* border: 1px solid red; */
+  display: flex;
+  text-align: center;
+}
+
+.mood-mix-item {
+  /* border: 1px solid white; */
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.mood-img {
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+}
+
+.mood-title {
+  /* border: 1px solid green; */
+}
+
+/* categories update section  */
+#categories {
+  display: flex;
+  text-align: center;
+}
+
+#categories-container {
+  margin-top: 1rem;
+}
+
+.updt-categories {
+  display: none;
+}
+
+.updt-categories:checked+label {
+  transform: scale(.9);
+}
+
+.updt-categories:checked+label img {
+  box-shadow: 0px 0px 10px #730060, 0px 2px 10px #730060;
+}
+
+.categories {
+  width: 6rem;
+  height: 8rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.categories-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* save changes button  */
+#save-changes {
+  border: 2px solid #730060;
+  display: inline-block;
+  width: 15rem;
+  text-align: center;
+  padding: .3rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 1.5rem 0 1rem;
+  border-radius: 10px;
+  background-color: #570530;
+  box-shadow: 0px 0px 5px #000;
+  cursor: pointer;
+}
+
+#me-hr {
+  margin: 1rem 0 3rem;
+}
+
+/* delete account */
+#delete-account {
+  text-align: center;
+  padding: .3rem;
+  font-size: 1.3rem;
+  color: red;
+  border: 1px solid rgba(255, 255, 255, 0.164);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#delete-account:hover {
+  background-color: rgba(255, 255, 255, 0.363);
+}
+
+/* delete pop-up design  */
+#delete-account-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0c070a65;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#delete-account-pop-up {
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px purple, 1px 1px 5px purple;
+  font-weight: 900;
+  animation: POP_UP .25s ease-in-out;
+}
+
+@keyframes POP_UP {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+#delete-warning {
+  padding: 4rem 1rem;
+  font-size: 1.4rem;
+}
+
+#delete-account-pop-up>div:last-child {
+  display: flex;
+}
+
+.delete-btn {
+  width: 50%;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#btn-cancel {
+  background: red;
+  border-radius: 0px 0px 0px 10px;
+  color: white;
+}
+
+#btn-cancel:hover {
+  background: #ff0000a1;
+}
+
+#btn-delete {
+  border-radius: 0px 0px 10px 0px;
+  background: #ffffff1a;
+}
+
+#btn-delete:hover {
+  background: white;
+  color: #000;
+}
+
+/* ==================================== player's section ====================================   */
+
+/* to hide the player container  */
+.hide-player-container {
+  transform: translateY(130vh);
+}
+
+/* player's container  */
+#player-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bgcolor);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease;
+}
+
+/* close player section  */
+#close-player-container {
+  position: absolute;
+  top: 30px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.219);
+  border-radius: 20px;
+  padding: .5rem;
+  right: 30px;
+  font-size: 1.2rem;
+  box-shadow: 0px 0px 5px #000;
+}
+
+/* player artist name  */
+#player-artist-name {
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem;
+}
+
+/* player image  */
+#player-image {
+  width: 40vh;
+  max-width: 20rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px 5px #000;
+}
+
+/* currently playing  */
+#current-playing {
+  text-decoration: underline;
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
+/* song name  */
+#player-song-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* song name below player icon container */
+#player-icon-container {
+  width: 40vh;
+  min-width: min-content;
+  display: flex;
+  justify-content: space-around;
+  padding: .2rem 0;
+}
+
+/* song name below container icons  */
+#player-icon-container i, #download-song {
+  display: inline-block;
+  padding: 10px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* for heart shape icon  */
+#player-icon-container .fa-solid:first-child {
+  color: red;
+  text-shadow: 0px 0px 10px red;
+}
+
+/* progress bar section  */
+#progress-container {
+  position: relative;
+  margin: 0 0 2rem;
+}
+
+/* progress bar  */
+#progress {
+  width: 50vw;
+  max-width: 800px;
+  cursor: pointer;
+}
+
+/* left timer  */
+#left-timer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+/* right timer  */
+#right-timer {
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+/* main controls container  */
+#main-controls {
+  display: flex;
+  align-items: center;
+}
+
+/* main controls container  */
+#main-controls i {
+  font-size: 3rem;
+  padding: .8rem;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+/* center button play/pause  */
+#playPauseButton {
+  font-size: 3.5rem !important;
+}
+
+/* next song indication  */
+#next-song-indication {
+  margin: .5rem 0 0;
+}
+
+/* media query for computers  */
+@media (max-width: 700px) {
+
+
+  /* ======================--headers starts here--=========================  */
+
+
+  /* ================================ information section here =================================  */
+  /* username logo  */
+  .form-logo {
+    padding: 1rem 0.5rem;
+  }
+
+  /* =============================== user name section =====================================  */
+  /* form container  */
+  #form-container {
+    max-width: 95vw;
+    min-width: 96vw;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 2rem;
+  }
+
+
+  /* username section heading  */
+  #u-heading {
+    font-size: 2.4rem;
+  }
+
+  /* username section title  */
+  #u-title {
+    padding: 0 0 1rem;
+    font-size: 1.15rem;
+  }
+
+  /* label in username container  */
+  #u-label {
+    padding: .5rem 0;
+  }
+
+  /* username input  */
+  #username {
+    margin: 0 0 1rem;
+  }
+
+  /* to toggle next button  */
+  #next-button {
+    padding: .5rem 1.7rem;
+    margin: 2rem 0 .5rem;
+  }
+
+
+  /* =============================== categories selection ========================== */
+
+  /* music selection container */
+  #m-container {
+    justify-content: flex-start;
+  }
+
+  /* m-sub-container section  */
+  #m-sub-container {
+    padding: 0 .6rem 2rem;
+  }
+
+  /* greeting user section  */
+  #greeting-section {
+    font-size: 1.8rem;
+  }
+
+  /* heading for music selection */
+  #sel-heading {
+    font-size: 1.2rem;
+    margin: 0 0 0 0;
+  }
+
+  /* category section  */
+  #category-section {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 1vh 0 0;
+  }
+
+  /* images in label  */
+  .sel-label {
+    width: 32vw;
+    margin: 0 0 .5rem;
+  }
+
+  /* label inner text  */
+  .sel-label-name {
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+
+  /* warning section  */
+  #m-warning {
+    font-size: .8rem;
+    padding: 0.2rem 0.4rem;
+    margin: 1vh 0;
+  }
+
+  /* save button */
+  #save-button {
+    font-size: 1.25rem;
+    border-width: 4px;
+  }
+
+  /* navbar section  */
+
+  #navbar {
+    padding: .5rem .5rem;
+  }
+
+  #n-left img {
+    margin: 0 0.4rem 0 0;
+  }
+
+  /* central bottom navbar  */
+  #n-center {
+    position: fixed;
+    bottom: 0;
+    left: 50% !important;
+    transform: translate(-50%, 0);
+    width: 100vw;
+    min-width: max-content;
+    padding: .2rem 1rem;
+    /* border-radius: 30px; */
+    background-color: #160a12;
+    justify-content: space-evenly;
+  }
+
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .2rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 5px;
+  }
+
+  .n-icon {
+    display: inline-block;
+  }
+
+  .navbar-links i {
+    font-size: 1.1rem;
+  }
+
+  .n-text {
+    font-size: .55rem;
+  }
+
+  /* right section navbar */
+
+  #n-right {
+    width: 2rem;
+  }
+
+  /* main song container  */
+  #songs-container {
+    padding: 4rem .5rem;
+  }
+
+  /* player section  */
+
+  /* player image  */
+  #player-image {
+    width: 28vh;
+  }
+
+  /* currently playing  */
+  #current-playing {
+    text-decoration: underline;
+    font-size: 1.2rem;
+    font-weight: 900;
+  }
+
+  /* song name container  */
+  #song-name-container {
+    width: 100%;
+    flex-direction: column-reverse;
+    position: relative;
+    height: max-content;
+    padding: 0 0 2.8rem;
+  }
+
+  /* song name  */
+  #player-song-name {
+    font-size: 1.25rem;
+  }
+
+  /* icon container in song container  */
+  .song-container-icons {
+    position: absolute;
+    bottom: 0%;
+    justify-items: flex-start;
+  }
+
+  .song-container-icons:nth-child(1) {
+    right: 0;
+  }
+
+  .song-container-icons:nth-child(2) {
+    right: 0%;
+  }
+
+
+
+  /* ========================= search song container ========================  */
+
+  #search-header {
+    height: 3rem;
+  }
+
+  #close-search {
+    margin-left: 0;
+  }
+
+  #search-box {
+    margin-right: 0;
+  }
+
+  #search-song {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  #clear-text, #clear-text label {
+    font-size: 1.7rem;
+    padding: .5rem;
+    cursor: pointer;
+  }
+
+
+  /* ================ about me section ====================  */
+
+  #me-top {
+    height: 9rem;
+  }
+
+  #me-top>div {
+    top: 5.2rem;
+    left: 1.7rem;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  #me-img {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  #me-body {
+    margin: 3rem auto 4.5rem;
+  }
+
+  .mood-img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  #categories {
+    justify-content: space-between;
+  }
+
+  .categories {
+    margin-left: 0;
+    width: 20vw;
+  }
+
+  #save-changes {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  #me-hr {
+    margin: 1rem 0;
+  }
+
+  /* delete pop-up design  */
+  #delete-account-pop-up {
+    width: 95%;
+    margin: auto;
+  }
+
+  /* progress bar section  */
+  #progress {
+    width: 85vw;
+  }
+
+  /* main container  */
+  #main-controls i {
+    font-size: 2.5rem;
+  }
+
+  /* next song indication  */
+  #next-song-indication {
+    font-size: .8rem;
+  }
+
+  /* ========================= mood mix section =========================  */
+  #artist-header {
+    height: 8rem;
+  }
+
+  /* artist name section  */
+  #artist-name {
+    font-size: 1.5rem;
+  }
+
+  /* artist image  */
+  #artist-image {
+    width: 6rem;
+  }
+
+  /* artist sub heading  */
+  #artist-sub-heading {
+    padding: .4rem 1rem 1.4rem;
+  }
+
+
+  /* artist songs list section  */
+  #artist-songs-list-container {
+    padding: 0 .7rem;
+  }
+
+  .mix-item {
+    height: 5.1rem;
+  }
+
+  .mix-img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .mix-song-detail {
+    gap: .3rem;
+    padding: .4rem;
+  }
+
+  .mix-song-name {
+    font-size: .9rem;
+    font-weight: 900;
+  }
+
+  .mix-artist-name {
+    font-size: .8rem;
+  }
+
+  .mix-download{
+    width: auto;
+    padding: 0 .5rem;
+  }
+
+  .mix-download a {
+    font-size: 1.6rem;
+  }
+
+}
